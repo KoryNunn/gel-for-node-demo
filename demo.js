@@ -205,14 +205,14 @@ function completer(line){
         
     for(var key in gel.functions){
         completions.push(key);
-        if (key.indexOf(lastToken) == 0) {
+        if (key.indexOf(lastToken) === 0) {
             // console.log('bang! ' + key);
             hits.push(restOfLine + key + " ");
         }
     }
     
     return [hits && hits.length ? hits : completions, line];
-};
+}
 
 
 
@@ -433,7 +433,8 @@ gel.functions["fold"] = function fold(){
 gel.functions['timeBetween'] = function toStrings(date1, date2, units){
     var result = Math.max(date1, date2) - Math.min(date1, date2),
         seconds = 1000,
-        hours = minutes = 60,
+        minutes = 60,
+        hours = 60,
         days = 24;
     
     if(units == 'days'){
